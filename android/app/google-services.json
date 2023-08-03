@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "541616868754",
+    "project_id": "hackathon-d108f",
+    "storage_bucket": "hackathon-d108f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541616868754:android:ffc15fb34a6f0befbf854b",
+        "android_client_info": {
+          "package_name": "com.bonfireteam.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541616868754-0m2mjb62hnv2omf4pjvbe9kdig6d9vv6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bonfireteam.hackathon",
+            "certificate_hash": "7e38e80aef8d7938849bf7871d59d1d284a2767d"
+          }
+        },
+        {
+          "client_id": "541616868754-j43t4nesbmog82bnq5d7botjara55c4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqNgnqzkqKsXbQ32TaTl0FDjt3trXdAac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541616868754-j43t4nesbmog82bnq5d7botjara55c4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

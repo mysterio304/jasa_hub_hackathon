@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>541616868754-ief651v7d379c6fh50bt5t6e1vf02e27.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.541616868754-ief651v7d379c6fh50bt5t6e1vf02e27</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>541616868754-0m2mjb62hnv2omf4pjvbe9kdig6d9vv6.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCB1Nf-goWhp63eVMOVah-68Fz_Gd0iP4o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>541616868754</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bonfireteam.hackathon</string>
+	<key>PROJECT_ID</key>
+	<string>hackathon-d108f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hackathon-d108f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:541616868754:ios:6465f65206885650bf854b</string>
+</dict>
+</plist>
