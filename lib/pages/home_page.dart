@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                               backgroundColor: MaterialStateProperty.all(fontColor),
                             ),
                             onPressed: (){
-                              downloadPDF('assets/MotivationPDF.pdf');
+                              downloadPDF('assets/MotivationPDF.pdf', 'MotivationPDF');
                             },
                             child: const Text('DOWNLOAD'),
                           ),
@@ -272,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                               backgroundColor: MaterialStateProperty.all(fontColor),
                             ),
                             onPressed: (){
-                              downloadPDF('assets/RecommendationPDF.pdf');
+                              downloadPDF('assets/RecommendationPDF.pdf', 'RecommendationPDF');
                             },
                             child: const Text('DOWNLOAD'),
                           ),
@@ -360,13 +360,15 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Future<void> downloadPDF(pdfPath) async {
+  Future<void> downloadPDF(pdfPath, fileName) async {
     try {
       final ByteData data = await rootBundle.load(pdfPath);
       final List<int> bytes = data.buffer.asUint8List();
 
       final Directory? directory = await getExternalStorageDirectory();
-      final String filePath = '${directory!.path}/MotivationPDF.pdf';
+      // final String filePath = '${directory!.path}/$fileName.pdf';
+      final String filePath = "/storage/emulated/0/Download/${fileName}";
+
 
       final File file = File(filePath);
       await file.writeAsBytes(bytes);
