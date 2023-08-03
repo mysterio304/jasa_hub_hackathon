@@ -4,13 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hackathon/models/usermodel.dart';
 import 'package:hackathon/pages/login_page.dart';
-import 'package:hackathon/widgets/career_card.dart';
 import 'package:hackathon/widgets/contact_dialog.dart';
-import 'package:hackathon/widgets/custom_appbar_button.dart';
 import 'package:hackathon/widgets/faq_dialog.dart';
 import 'package:hackathon/widgets/filter_dialog.dart';
 import 'package:hackathon/widgets/university_card.dart';
@@ -220,8 +217,8 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Motivation letter samples', style: const TextStyle(fontSize: 24, color: fontColor, fontWeight: FontWeight.w500)),
-                        Text('A motivation letter is a personal document detailing your professional skills and reasons for applying for a course of study, a scholarship or a volunteer job. ', style: const TextStyle(color: fontColor)),
+                        const Text('Motivation letter samples', style: TextStyle(fontSize: 24, color: fontColor, fontWeight: FontWeight.w500)),
+                        const Text('A motivation letter is a personal document detailing your professional skills and reasons for applying for a course of study, a scholarship or a volunteer job. ', style: TextStyle(color: fontColor)),
                         Align(
                           alignment: Alignment.bottomRight,
                           child: ElevatedButton(
@@ -258,8 +255,8 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Recommendation letter samples', style: const TextStyle(fontSize: 24, color: fontColor, fontWeight: FontWeight.w500)),
-                        Text('A formal letter that demonstrates the skills and performance of another person through the writer’s description of their professional, academic, or otherwise relevant experience with that person. ', style: const TextStyle(color: fontColor)),
+                        const Text('Recommendation letter samples', style: TextStyle(fontSize: 24, color: fontColor, fontWeight: FontWeight.w500)),
+                        const Text('A formal letter that demonstrates the skills and performance of another person through the writer’s description of their professional, academic, or otherwise relevant experience with that person. ', style: TextStyle(color: fontColor)),
                         Align(
                           alignment: Alignment.bottomRight,
                           child: ElevatedButton(
@@ -282,6 +279,45 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  decoration: const BoxDecoration(
+                    color: Color.fromRGBO(228, 223, 223, 1),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('CV', style: TextStyle(fontSize: 24, color: fontColor, fontWeight: FontWeight.w500)),
+                        const Text("A CV (Curriculum Vitae) is a concise document that provides a summary of a person's education, work experience, skills, and achievements. It is commonly used for job applications, academic positions, and other professional opportunities. The CV highlights an individual's qualifications and serves as a tool for showcasing their suitability for a particular role or position.", style: TextStyle(color: fontColor)),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              backgroundColor: MaterialStateProperty.all(fontColor),
+                            ),
+                            onPressed: (){
+                              downloadPDF('assets/CVPDF.pdf', 'CVPDF');
+                            },
+                            child: const Text('DOWNLOAD'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -365,15 +401,13 @@ class _HomePageState extends State<HomePage> {
       final ByteData data = await rootBundle.load(pdfPath);
       final List<int> bytes = data.buffer.asUint8List();
 
-      final Directory? directory = await getExternalStorageDirectory();
-      // final String filePath = '${directory!.path}/$fileName.pdf';
-      final String filePath = "/storage/emulated/0/Download/${fileName}";
+      final String filePath = "/storage/emulated/0/Download/$fileName.pdf";
 
 
       final File file = File(filePath);
       await file.writeAsBytes(bytes);
 
-      Fluttertoast.showToast(msg: 'PDF downloaded to: $filePath');
+      Fluttertoast.showToast(msg: 'PDF saved to Download folder!');
     } catch (e) {
       print('Error downloading PDF: $e');
     }
